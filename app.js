@@ -25,20 +25,27 @@ function obterNumeroAleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function alterarStatusBotao(){
+function alterarStatusBotao() {
     // Declara uma variável 'botao' e atribui a ela o elemento HTML com o ID 'btn-reiniciar'
     let botao = document.getElementById('btn-reiniciar');
-    if(botao.classList.contains('container__botao-desabilitado')){
+
+    // Verifica se o botão possui a classe 'container__botao-desabilitado'
+    if (botao.classList.contains('container__botao-desabilitado')) {
+        // Se possuir, remove a classe 'container__botao-desabilitado'
         botao.classList.remove('container__botao-desabilitado');
+        // Adiciona a classe 'container__botao' para habilitar o botão
         botao.classList.add('container__botao');
-    } else{
+    } else {
+        // Se não possuir a classe 'container__botao-desabilitado',
+        // remove a classe 'container__botao' (indicando que o botão estava habilitado)
         botao.classList.remove('container__botao');
+        // Adiciona a classe 'container__botao-desabilitado' para desabilitar o botão
         botao.classList.add('container__botao-desabilitado');
     }
 }
 
 function reiniciar(){
-    document.getElementById('quantidade').value = '';
+    document.getElementById('quantidade').value = ''; //"limpa" o campo
     document.getElementById('de').value = '';
     document.getElementById('ate').value = '';
     document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>'
